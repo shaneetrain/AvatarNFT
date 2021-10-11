@@ -9,11 +9,17 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
     const [Frame, setFrame] = useState("00");
+    const [checkFrame, setCheckFrame] = useState();
     const { scrollY } = useViewportScroll();
 
     const opacityHero = useTransform(scrollY, [400, 700], [1, 0]);
     const opacitySecondary = useTransform(scrollY, [700, 1000], [0, 1]);
     const xSecondary = useTransform(scrollY, [700, 1000], [-150, -50]);
+
+    useEffect(() => {
+        let currentFrame = parseInt(scrollY.current * 0.1);
+        setCheckFrame(currentFrame);
+    }, [scrollY]);
 
     useEffect(() => {
         return scrollY.onChange((v) => {
@@ -26,7 +32,7 @@ export default function Home() {
             }
             setFrame(frame);
         });
-    }, [scrollY]);
+    }, [checkFrame]);
 
     return (
         <div>
