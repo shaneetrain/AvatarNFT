@@ -6,7 +6,7 @@ const team = [
     {
         name: "Shane Hanlon",
         desc: "3d Artist and Developer. Shane has worked with brands like Apple, Playstation, and Beats by Dre.",
-        img: "https://picsum.photos/200",
+        img: "https://picsum.photos/id/19/200",
         socials: {
             instagram: "https://www.instagram.com/wonderingshane/",
             twitter: "https://twitter.com/WonderingShane",
@@ -16,7 +16,7 @@ const team = [
     {
         name: "Rhea Manglapus",
         desc: "Art Director and Designer. Rhea has worked as a designer for Apple the past 3 years.",
-        img: "https://picsum.photos/200",
+        img: "https://picsum.photos/id/50/200",
         socials: {
             instagram: "https://www.instagram.com/rhea_lm/",
             twitter: "https://twitter.com/rhea_lm",
@@ -26,7 +26,7 @@ const team = [
     {
         name: "Christopher Rutledge",
         desc: "3d Artist and Technical Director.",
-        img: "https://picsum.photos/200",
+        img: "https://picsum.photos/id/18/200",
         socials: {
             instagram: "https://www.instagram.com/tokymegz/",
             twitter: "https://twitter.com/tokyomegaplex",
@@ -35,7 +35,7 @@ const team = [
     {
         name: "Seb Helene ",
         desc: "3d Artist and Art Director.",
-        img: "https://picsum.photos/200",
+        img: "https://picsum.photos/id/99/200",
         socials: {
             instagram: "https://www.instagram.com/seb_scribbles/",
             twitter: "https://twitter.com/SebastianHelene",
