@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import axios from "axios";
 
 const robotosContract = "0x099689220846644F87D1137665CDED7BF3422747";
 const robotosABI = [
@@ -395,23 +396,23 @@ const getRobotos = async () => {
     const contract = new ethers.Contract(robotosContract, robotosABI, signer);
 
     const robotosID = await contract.tokensOfOwner(address);
-    let robotosURLs = [];
+    let robotosData = [];
 
     for (const roboto of robotosID) {
         const id = roboto._hex;
-        const url = await getRobotosPicture(id);
-        robotosURLs.push(url);
+        const url = await getRobotosData(id);
+        robotosData.push(url);
     }
-    return robotosURLs;
+    return robotosData;
 };
 
-const getRobotosPicture = async (id) => {
+const getRobotosData = async (id) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = await provider.getSigner();
     const contract = new ethers.Contract(robotosContract, robotosABI, signer);
     const tokenURL = await contract.tokenURI(id);
     const res = await axios.get(tokenURL);
-    return res.data.image;
+    return res.data;
 };
 
-export { getAddress, getRobotos, getRobotosPicture };
+export { getAddress, getRobotos, getRobotosData };

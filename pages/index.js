@@ -1,5 +1,4 @@
 import Head from "next/head";
-import GetNFTs from "../components/GetNFTs";
 import {
     motion,
     useMotionValue,
@@ -33,7 +32,7 @@ export default function Home() {
         <div>
             <div style={{ height: 2400 }} className="bg-white">
                 <Head>
-                    <title>Rock N Roll</title>
+                    <title>Avatar</title>
                     <link rel="icon" href="/favicon.ico" />
                     <link
                         rel="preconnect"

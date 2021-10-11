@@ -14,6 +14,11 @@ module.exports = {
             fontFamily: {
                 sans: ["Roboto Mono"],
             },
+            spacing: {
+                96: "24rem",
+                120: "30rem",
+                148: "40rem",
+            },
         },
     },
     variants: {
@@ -22,7 +27,7 @@ module.exports = {
     plugins: [require("@tailwindcss/typography"), require("daisyui")],
     daisyui: {
         styled: true,
-        themes: true,
+        themes: ["light"],
         base: true,
         utils: true,
         logs: true,
