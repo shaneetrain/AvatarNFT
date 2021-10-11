@@ -34,7 +34,7 @@ const team = [
     },
     {
         name: "Seb Helene ",
-        desc: "3d Artist and Art Director.",
+        desc: "3d Artist and Art Director. Boss Bitch.",
         img: "https://picsum.photos/id/99/200",
         socials: {
             instagram: "https://www.instagram.com/seb_scribbles/",
