@@ -5,8 +5,7 @@ import {
     useTransform,
     useViewportScroll,
 } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
-import CanvasDraw from "react-canvas-draw";
+import { useEffect, useState } from "react";
 
 export default function Home() {
     const [Frame, setFrame] = useState("00");
@@ -16,8 +15,6 @@ export default function Home() {
     const opacityHero = useTransform(scrollY, [400, 700], [1, 0]);
     const opacitySecondary = useTransform(scrollY, [700, 1000], [0, 1]);
     const xSecondary = useTransform(scrollY, [700, 1000], [-150, -50]);
-
-    const refImage = useRef(null);
 
     useEffect(() => {
         let currentFrame = parseInt(scrollY.current * 0.1);
@@ -59,9 +56,8 @@ export default function Home() {
                 </Head>
                 <div className="sticky top-0">
                     <motion.img
-                        src={`/images/testAssets-website/Hero_asset_test${Frame}.webp`}
+                        src={`/images/testAssets-website/Hero_asset_test${Frame}.jpg`}
                         alt=""
-                        ref={refImage}
                         style={{ opacity: opacityHero }}
                         className={`w-screen h-full z-10 ${
                             opacityHero === 0 ? "hidden" : null
