@@ -6,7 +6,10 @@ const TeamCard = ({ name, desc, socials, img }) => {
             <div className="flex items-center w-148 px-4 py-2 bg-cover card">
                 <div className="card glass lg:card-side text-neutral-content">
                     <figure className="p-6">
-                        <img src={`${img}`} className="rounded-lg shadow-lg" />
+                        <img
+                            src={`${img}`}
+                            className="shadow-lg mask mask-squircle"
+                        />
                     </figure>
                     <div className="max-w-md card-body">
                         <h2 className="card-title text-primary">{name}</h2>

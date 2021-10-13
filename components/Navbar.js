@@ -63,17 +63,17 @@ const Navbar = () => {
                         </a>
                     </Link>
                     {address ? (
-                        <Link href="/nfts">
+                        <Link href="/mirror">
                             <a
                                 className={`text-lg px-3 cursor-pointer 
                         ${
-                            route === "/nfts"
+                            route === "/mirror"
                                 ? "font-bold text-primary"
                                 : "text-gray-900 hover:text-primary hover:border-b border-primary"
                         }
                         `}
                             >
-                                NFTs
+                                Mirror
                             </a>
                         </Link>
                     ) : null}

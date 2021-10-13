@@ -5,34 +5,42 @@ import {
     useTransform,
     useViewportScroll,
 } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
-    const [Frame, setFrame] = useState("00");
-    const [checkFrame, setCheckFrame] = useState();
     const { scrollY } = useViewportScroll();
+
+    const [image, setImage] = useState(null);
+    const canvas = useRef(null);
 
     const opacityHero = useTransform(scrollY, [400, 700], [1, 0]);
     const opacitySecondary = useTransform(scrollY, [700, 1000], [0, 1]);
     const xSecondary = useTransform(scrollY, [700, 1000], [-150, -50]);
 
     useEffect(() => {
-        let currentFrame = parseInt(scrollY.current * 0.1);
-        setCheckFrame(currentFrame);
-    }, [scrollY]);
+        const img = new Image();
+        img.src = currentFrame("00");
+        img.onload = () => setImage(img);
+    }, []);
 
     useEffect(() => {
-        return scrollY.onChange((v) => {
-            let frame = parseInt(scrollY.current * 0.1).toString();
-            if (frame.length === 1) {
-                frame = "0" + frame;
-            }
-            if (frame > 37) {
-                frame = 37;
-            }
-            setFrame(frame);
-        });
-    }, [checkFrame]);
+        if (image && canvas) {
+            const context = canvas.current.getContext("2d");
+            context.drawImage(image, 0, 0);
+        }
+    }, [image, canvas]);
+
+    useEffect(() => {
+        let frame = parseInt(scrollY.current * 0.1).toString();
+        frame.length === 1 ? (frame = frame + "0") : null;
+        const img = new Image();
+        console.log(frame);
+        img.src = currentFrame(frame);
+        img.onload = () => setImage(img);
+    }, [scrollY]);
+
+    const currentFrame = (index) =>
+        `/images/testAssets-website/Hero_asset_test${index}.webp`;
 
     return (
         <div>
@@ -55,13 +63,20 @@ export default function Home() {
                     />
                 </Head>
                 <div className="sticky top-0">
-                    <motion.img
-                        src={`/images/testAssets-website/Hero_asset_test${Frame}.jpg`}
+                    {/* <motion.img
+                        src={`/images/testAssets-website/Hero_asset_test${Frame}.webp`}
                         alt=""
+                        ref={refImage}
                         style={{ opacity: opacityHero }}
                         className={`w-screen h-full z-10 ${
                             opacityHero === 0 ? "hidden" : null
                         }`}
+                    /> */}
+                    <canvas
+                        width={1920}
+                        height={1080}
+                        className="w-screen"
+                        ref={canvas}
                     />
                     <motion.div
                         style={{
