@@ -7,11 +7,9 @@ export default function Home() {
 
     const [frameIndex, setFrameIndex] = useState(0);
     const canvas = useRef(null);
-    const frameCount = 37;
+    const frameCount = 90;
     const currentFrame = (index) =>
-        `/images/testAssets-website/Hero_asset_test${index
-            .toString()
-            .padStart(2, "0")}.webp`;
+        `/images/renders/test${index.toString().padStart(4, "0")}.png`;
 
     const opacityHero = useTransform(scrollY, [400, 700], [1, 0]);
     const opacitySecondary = useTransform(scrollY, [700, 1000], [0, 1]);
@@ -86,7 +84,7 @@ export default function Home() {
 
     return (
         <div>
-            <div style={{ height: 2400 }} className="bg-white">
+            <div style={{ height: 3600 }} className="bg-white">
                 <Head>
                     <title>Avatar</title>
                     <link rel="icon" href="/favicon.ico" />
@@ -106,8 +104,8 @@ export default function Home() {
                 </Head>
                 <div className="sticky top-0">
                     <canvas
-                        width={1920}
-                        height={1080}
+                        width={1920 / 1.5}
+                        height={1080 / 1.5}
                         className="w-screen"
                         ref={canvas}
                     />
