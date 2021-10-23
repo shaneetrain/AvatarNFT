@@ -9,7 +9,7 @@ export default function Home() {
     const canvas = useRef(null);
     const frameCount = 90;
     const currentFrame = (index) =>
-        `/images/hero/test_${index.toString().padStart(5, "0")}.jpg`;
+        `/images/heroHD/Hero_${index.toString().padStart(5, "0")}.jpg`;
 
     const opacityHero = useTransform(scrollY, [1400, 1800], [1, 0]);
     const opacitySecondary = useTransform(
@@ -123,8 +123,8 @@ export default function Home() {
                     >
                         <div className="flex justify-center items-center">
                             <canvas
-                                width={1440}
-                                height={810}
+                                width={1920}
+                                height={1080}
                                 className="h-screen"
                                 ref={canvas}
                             />
@@ -134,9 +134,9 @@ export default function Home() {
                         style={{
                             opacity: opacitySecondary,
                             x: xSecondary,
-                            y: -50,
+                            y: -25,
                         }}
-                        className="text-primary text-4xl z-0 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                        className="text-primary text-3xl z-0 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                     >
                         Say Hello.
                     </motion.div>
@@ -144,9 +144,9 @@ export default function Home() {
                         style={{
                             opacity: opacityText,
                             x: xText,
-                            y: 50,
+                            y: 25,
                         }}
-                        className="text-primary text-4xl z-0 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                        className="text-primary text-3xl z-0 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                     >
                         To your new avatar.
                     </motion.div>
