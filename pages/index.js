@@ -12,8 +12,19 @@ export default function Home() {
         `/images/hero/test_${index.toString().padStart(5, "0")}.jpg`;
 
     const opacityHero = useTransform(scrollY, [1400, 1800], [1, 0]);
-    const opacitySecondary = useTransform(scrollY, [1600, 2000], [0, 1]);
-    const xSecondary = useTransform(scrollY, [1650, 2050], [-150, -50]);
+    const opacitySecondary = useTransform(
+        scrollY,
+        [1600, 2000, 2900, 3100],
+        [0, 1, 1, 0]
+    );
+    const opacityText = useTransform(
+        scrollY,
+        [2200, 2500, 2800, 3000],
+        [0, 1, 1, 0]
+    );
+
+    const xSecondary = useTransform(scrollY, [1650, 2050], [-350, -200]);
+    const xText = useTransform(scrollY, [2200, 2500], [-50, -200]);
 
     useEffect(() => {
         preloadImages();
@@ -105,26 +116,63 @@ export default function Home() {
 
                 <div className="sticky top-0">
                     <motion.div
+                        className="flex justify-center items-center bg-greyHero"
                         style={{
                             opacity: opacityHero,
                         }}
                     >
-                        <canvas
-                            width={1920 / 1.5}
-                            height={1280 / 1.5}
-                            className="w-screen"
-                            ref={canvas}
-                        />
+                        <div className="flex justify-center items-center">
+                            <canvas
+                                width={1440}
+                                height={810}
+                                className="h-screen"
+                                ref={canvas}
+                            />
+                        </div>
                     </motion.div>
                     <motion.div
                         style={{
                             opacity: opacitySecondary,
                             x: xSecondary,
+                            y: -50,
                         }}
-                        className="text-primary z-0 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                        className="text-primary text-4xl z-0 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                     >
-                        Yes, we move.
+                        Say Hello.
                     </motion.div>
+                    <motion.div
+                        style={{
+                            opacity: opacityText,
+                            x: xText,
+                            y: 50,
+                        }}
+                        className="text-primary text-4xl z-0 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    >
+                        To your new avatar.
+                    </motion.div>
+                </div>
+            </div>
+            <div className="w-screen py-12 flex flex-row justify-center items-center flex-wrap bg-gradient-to-t from-primary">
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2"></div>
+            </div>
+            <div className="py-72  bg-primary">
+                <div className="flex flex-col justify-center items-center">
+                    <p className="text-white text-4xl font-bold">
+                        Built for the metaverse.
+                    </p>
+                    <div className="my-2"></div>
+                    <div className="w-200 h-120 bg-greyHero"></div>
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ module.exports = {
                 primary: "#570df8",
                 gradient1: "#FF39D8",
                 gradient2: "#FF542E",
+                greyHero: "#AAAAAA",
             },
             fontFamily: {
                 sans: ["Roboto Mono"],
