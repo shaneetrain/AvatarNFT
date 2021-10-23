@@ -1,10 +1,5 @@
 import Head from "next/head";
-import {
-    motion,
-    useMotionValue,
-    useTransform,
-    useViewportScroll,
-} from "framer-motion";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -18,6 +13,7 @@ export default function Home() {
 
     useEffect(() => {
         let currentFrame = parseInt(scrollY.current * 0.1);
+        console.log(currentFrame);
         setCheckFrame(currentFrame);
     }, [scrollY]);
 

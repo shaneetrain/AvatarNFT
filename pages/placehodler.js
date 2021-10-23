@@ -3,9 +3,8 @@ import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
-    const { scrollY, scrollYProgress } = useViewportScroll();
+    const { scrollY } = useViewportScroll();
 
-    const [image, setImage] = useState(null);
     const [frameIndex, setFrameIndex] = useState(0);
     const canvas = useRef(null);
     const frameCount = 37;
@@ -21,36 +20,67 @@ export default function Home() {
     useEffect(() => {
         preloadImages();
 
-        const img = new Image();
-        img.src = currentFrame(frameIndex);
-        img.onload = () => setImage(img);
+        // We'll add an event listener to the window to know when the user has scrolled
+        // and we'll update the scroll position state (in a separate function)
+        document.addEventListener("scroll", () => {
+            requestAnimationFrame(() => {
+                calculateScrollDistance();
+            });
+        });
+
+        // Draw the first image on page load
+        drawImage(frameIndex);
+        // Remove the event listener when the component is unmounted to prevent memory leaks
+        return () => window.removeEventListener("scroll");
     }, []);
 
+    //
     useEffect(() => {
-        if (image && canvas) {
-            const context = canvas.current.getContext("2d");
-            context.drawImage(image, 0, 0);
-        }
-    }, [image, canvas]);
+        drawImage(frameIndex);
+    }, [frameIndex]);
 
-    useEffect(() => {
-        const img = new Image();
-        setFrameIndex(
-            Math.min(
-                frameCount - 1,
-                Math.floor(scrollYProgress.current * frameCount)
-            )
-        );
-        console.log(frameIndex);
-        img.src = currentFrame(frameIndex);
-        img.onload = () => setImage(img); // this line causes an infinite loop and slows down the pages
-    }),
-        [scrollYProgress.curent];
-
+    // Preload all the images so they are downloaded and cached
     const preloadImages = () => {
         for (let i = 1; i < frameCount; i++) {
             const img = new Image();
             img.src = currentFrame(i);
+        }
+    };
+
+    // This is a helper function to calculate the height of the document, we'll need to use this to calculate the scroll distance
+    const getDocHeight = () => {
+        return Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight,
+            document.body.clientHeight,
+            document.documentElement.clientHeight
+        );
+    };
+
+    // This function calculates the scroll progress and the corresponding frame index for that scroll position
+    const calculateScrollDistance = () => {
+        const scrollTop = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const docHeight = getDocHeight();
+
+        const totalDocScrollLength = docHeight - windowHeight;
+        const scrollFraction = Math.floor(
+            (scrollTop / totalDocScrollLength) * frameCount
+        );
+        setFrameIndex(Math.min(frameCount - 1, scrollFraction));
+    };
+
+    // This function draws the image on the canvas
+    const drawImage = (frameIndex) => {
+        const img = new Image();
+        img.src = currentFrame(frameIndex);
+        if (canvas) {
+            const context = canvas.current.getContext("2d");
+            img.onload = () => {
+                context.drawImage(img, 0, 0);
+            };
         }
     };
 
@@ -67,7 +97,7 @@ export default function Home() {
                     <link
                         rel="preconnect"
                         href="https://fonts.gstatic.com"
-                        crossorigin
+                        crossOrigin="true"
                     />
                     <link
                         href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
