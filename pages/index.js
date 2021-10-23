@@ -153,20 +153,20 @@ export default function Home() {
                 </div>
             </div>
             <div className="w-screen py-12 flex flex-row justify-center items-center flex-wrap bg-gradient-to-t from-primary">
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
-                <div className="bg-greyHero w-72 h-72 m-2"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
+                <div className="bg-greyHero w-72 h-72 m-2 rounded-2xl"></div>
             </div>
-            <div className="py-72  bg-primary">
+            <div className="py-64  bg-primary">
                 <div className="flex flex-col justify-center items-center">
                     <p className="text-white text-4xl font-bold">
                         Built for the metaverse.
