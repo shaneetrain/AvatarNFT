@@ -9,7 +9,7 @@ export default function Home() {
     const canvas = useRef(null);
     const frameCount = 90;
     const currentFrame = (index) =>
-        `/images/renders-webp/test${index.toString().padStart(4, "0")}.webp`;
+        `/images/hero/test_${index.toString().padStart(5, "0")}.jpg`;
 
     const opacityHero = useTransform(scrollY, [1400, 1800], [1, 0]);
     const opacitySecondary = useTransform(scrollY, [1600, 2000], [0, 1]);
