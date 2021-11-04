@@ -8,10 +8,10 @@ const TeamCard = ({ name, desc, socials, img }) => {
                     <figure className="p-6">
                         <img
                             src={`${img}`}
-                            className="shadow-lg mask mask-squircle"
+                            className="shadow-lg mask mask-squircle h-48 w-48"
                         />
                     </figure>
-                    <div className="max-w-md card-body">
+                    <div className="w-96 card-body">
                         <h2 className="card-title text-primary">{name}</h2>
                         <p className="text-gray-900">{desc}</p>
                         <div className="card-actions">

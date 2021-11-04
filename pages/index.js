@@ -22,6 +22,11 @@ export default function Home() {
         [2200, 2500, 2800, 3000],
         [0, 1, 1, 0]
     );
+    const opacityGeos = useTransform(
+        scrollY,
+        [3000, 3600, 3800, 4400],
+        [0, 1, 1, 0]
+    );
 
     const xSecondary = useTransform(scrollY, [1650, 2050], [-350, -200]);
     const xText = useTransform(scrollY, [2200, 2500], [-50, -200]);
@@ -95,7 +100,7 @@ export default function Home() {
 
     return (
         <div>
-            <div style={{ height: 3600 }} className="bg-white">
+            <div style={{ height: 4800 }} className="bg-white">
                 <Head>
                     <title>Avatar</title>
                     <link rel="icon" href="/favicon.ico" />
@@ -149,6 +154,14 @@ export default function Home() {
                         className="text-primary text-3xl z-0 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                     >
                         To your new avatar.
+                    </motion.div>
+                    <motion.div
+                        style={{
+                            opacity: opacityGeos,
+                        }}
+                        className="text-primary text-6xl z-0 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    >
+                        GEOS
                     </motion.div>
                 </div>
             </div>

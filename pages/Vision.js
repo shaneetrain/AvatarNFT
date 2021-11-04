@@ -68,6 +68,11 @@ const Vision = () => {
                                 body="The largest long-term goal we have is to bring the actual metaverse to life. Our vision is to fund and help build a decentralized base layer to the metaverse. Similar to how Ethereum is a decentralized base layer to a lot of apps. We want to help facilitate the creation of a decentralized base layer to the metaverse. Game studios (centralized) and DAOs (decentralized) can then build on top of that. They can provide other universes and experiences that are all linked to the base layer by market and asset standards. They can charge a fee for you to have access to their world. This could open up all new business models to game creators. Instead of having to release a game every year, you could charge a monthly fee to have access to your part of the metaverse and continually build upon what you currently have. Always making it better and better. You can just walk through a portal and now you are playing GTA with your same avatar and items. If I am being honest, we don't quite yet know how to go about creating this. But we have the desire. And we can use this project to fund it."
                             />
                         </div>
+                        <div className="flex flex-col items-center pb-6">
+                            <h2 className="text-3xl font-bold pt-24">
+                                Open Source Brand
+                            </h2>
+                        </div>
                     </div>
                 </div>
             </div>
